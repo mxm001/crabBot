@@ -4,7 +4,7 @@ import re
 
     
     
-def bop(bot, update):
+def perro(bot, update):
     contents = requests.get('https://random.dog/woof.json').json()
     url = contents['url']
     chat_id = update.message.chat_id
@@ -48,6 +48,7 @@ def main():
     dp.add_handler(CommandHandler('hola',hola))
     dp.add_handler(CommandHandler('moxi',moxi))
     dp.add_handler(CommandHandler('btc', bitcoin))
+    dp.add_handler(CommandHandler('altokperro',perro))
 
     updater.start_polling()
     updater.idle()
