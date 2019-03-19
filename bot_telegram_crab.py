@@ -24,6 +24,9 @@ def moxi(bot, update):
 
 def cumbia(bot, update):
      update.message.reply_text('Atr perro cumbia cajeteala piola gato')
+        
+def rock(bot, update):
+     update.message.reply_text('Rock and roll ah na na na')
      
 def bitcoin(bot, update):
     bitcoin_api_url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
@@ -39,6 +42,7 @@ def main():
     updater = Updater('832075970:AAGuFaXyf70znt1OkhF_Od1o3-06DN7YCsE')
     dp = updater.dispatcher
     
+    dp.add_handler(CommandHandler('rock',rock))
     dp.add_handler(CommandHandler('cumbia',cumbia))
     dp.add_handler(CommandHandler('chatid',chatid))
     dp.add_handler(CommandHandler('hola',hola))
