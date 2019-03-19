@@ -22,6 +22,9 @@ def hola(bot, update):
 def moxi(bot, update):
     update.message.reply_text('Moxi es puto')
 
+def cumbia(bot, update):
+     update.message.reply_text('Atr perro cumbia cajeteala piola gato')
+     
 def bitcoin(bot, update):
     bitcoin_api_url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
     response = requests.get(bitcoin_api_url)
@@ -29,12 +32,14 @@ def bitcoin(bot, update):
     precio_btc = float(response_json[0]['price_usd'])
     precio_btc = round(precio_btc, 2)
     update.message.reply_text('Precio btc: '+str(precio_btc)+" USD")
+   
     
     
 def main():
     updater = Updater('832075970:AAGuFaXyf70znt1OkhF_Od1o3-06DN7YCsE')
     dp = updater.dispatcher
     
+    dp.add_handler(CommandHandler('cumbia',cumbia))
     dp.add_handler(CommandHandler('chatid',chatid))
     dp.add_handler(CommandHandler('hola',hola))
     dp.add_handler(CommandHandler('moxi',moxi))
