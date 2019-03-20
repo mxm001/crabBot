@@ -27,7 +27,17 @@ def cumbia(bot, update):
         
 def rock(bot, update):
      update.message.reply_text('Rock and roll ah na na na')
-     
+
+def simon_dice(bot, update, args):
+    user_says = " ".join(args)
+    #print(user_says)
+    if(user_says=="liven es puto?"):
+          update.message.reply_text("La verdad tenes razón")
+    else:
+          update.message.reply_text("Simon dice: " + user_says)
+
+    
+
 def bitcoin(bot, update):
     bitcoin_api_url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
     response = requests.get(bitcoin_api_url)
@@ -49,6 +59,7 @@ def main():
     dp.add_handler(CommandHandler('moxi',moxi))
     dp.add_handler(CommandHandler('btc', bitcoin))
     dp.add_handler(CommandHandler('altokperro',perro))
+    dp.add_handler(CommandHandler("simon_dice", simon_dice, pass_args=True))
 
     updater.start_polling()
     updater.idle()
