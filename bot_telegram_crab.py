@@ -11,7 +11,7 @@ def perro(bot, update):
     
 def gato(bot, update):
     contents = requests.get('http://aws.random.cat/meow').json()
-    url = contents['url']
+    url = contents['file']
     chat_id = update.message.chat_id
     bot.send_photo(chat_id=chat_id, photo=url)
     
