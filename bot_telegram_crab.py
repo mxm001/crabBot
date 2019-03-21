@@ -50,7 +50,7 @@ def bitcoin(bot, update):
     precio_btc = float(response_json[0]['price_usd'])
     precio_btc = round(precio_btc, 2)
     update.message.reply_text('Precio btc: '+str(precio_btc)+" USD")
-   #asdasdasd
+   
     
     
 def main():
