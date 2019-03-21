@@ -1,7 +1,6 @@
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 import requests
 import re
-
     
     
 def perro(bot, update):
@@ -10,6 +9,11 @@ def perro(bot, update):
     chat_id = update.message.chat_id
     bot.send_photo(chat_id=chat_id, photo=url)
     
+def gato(bot, update):
+    contents = requests.get('http://aws.random.cat/meow').json()
+    url = contents['url']
+    chat_id = update.message.chat_id
+    bot.send_photo(chat_id=chat_id, photo=url)
     
 def chatid(bot, update):
     chat_id = update.message.chat_id
@@ -64,6 +68,7 @@ def main():
     dp.add_handler(CommandHandler('moxi',moxi))
     dp.add_handler(CommandHandler('btc', bitcoin))
     dp.add_handler(CommandHandler('altokperro',perro))
+    dp.add_handler(CommandHandler('piolagato',gato))
     dp.add_handler(CommandHandler("simon_dice", simon_dice, pass_args=True))
     dp.add_handler(CommandHandler("simon_pregunta", simon_pregunta, pass_args=True))
 
