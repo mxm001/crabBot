@@ -35,8 +35,13 @@ def simon_dice(bot, update, args):
           update.message.reply_text("La verdad tenes razón")
     else:
           update.message.reply_text("Simon dice: " + user_says)
-
-    
+def simon_pregunta(bot, update, args):
+     user_says = " ".join(args)
+     patron=r"(\S*)( es puto\?)"
+     if(re.search(patron,user_says) ):
+          update.message.reply_text("Sí, "+re.search(patron,user_says)[1]+" tiene pinta que ataja pedazos con la cola" )
+     else:
+          update.message.reply_text("Pregunta otra cosa, careta")
 
 def bitcoin(bot, update):
     bitcoin_api_url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
@@ -60,6 +65,7 @@ def main():
     dp.add_handler(CommandHandler('btc', bitcoin))
     dp.add_handler(CommandHandler('altokperro',perro))
     dp.add_handler(CommandHandler("simon_dice", simon_dice, pass_args=True))
+    dp.add_handler(CommandHandler("simon_pregunta", simon_pregunta, pass_args=True))
 
     updater.start_polling()
     updater.idle()
