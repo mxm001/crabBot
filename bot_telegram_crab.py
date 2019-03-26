@@ -8,7 +8,13 @@ def perro(bot, update):
     url = contents['url']
     chat_id = update.message.chat_id
     bot.send_photo(chat_id=chat_id, photo=url)
+	
+def atr(bot, update):
+    contents ="https://www.youtube.com/watch?v=v0DYwUaEIq8"
+   
+    update.message.reply_text(contents)
     
+	
 def gato(bot, update):
     contents = requests.get('http://aws.random.cat/meow').json()
     url = contents['file']
@@ -69,6 +75,7 @@ def main():
     dp.add_handler(CommandHandler('btc', bitcoin))
     dp.add_handler(CommandHandler('altokperro',perro))
     dp.add_handler(CommandHandler('piolagato',gato))
+    dp.add_handler(CommandHandler('atr',atr))
     dp.add_handler(CommandHandler("simon_dice", simon_dice, pass_args=True))
     dp.add_handler(CommandHandler("simon_pregunta", simon_pregunta, pass_args=True))
 
