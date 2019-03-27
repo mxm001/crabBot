@@ -20,7 +20,7 @@ def gato(bot, update):
     url = contents['file']
     chat_id = update.message.chat_id
     bot.send_photo(chat_id=chat_id, photo=url)
-    
+    #comentario para que corra deploy
 def chatid(bot, update):
     chat_id = update.message.chat_id
     print(str(chat_id))
