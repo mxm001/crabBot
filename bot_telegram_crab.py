@@ -48,6 +48,10 @@ Lo unico que quedaria, son unas preguntas obligatorias para elaborar perfiles ps
 7.- juky o dadalt"""
     update.message.reply_text(stringBienvenida)  
 
+def handle_hola(bot, update):
+    text = update.message.text
+    if text == 'hello':
+        update.message.reply_text('Hello {}'.format(update.message.from_user.first_name))
 def hola(bot, update):
     update.message.reply_text('Hola {}'.format(update.message.from_user.first_name))
 
@@ -119,7 +123,7 @@ def main():
     dp.add_handler(CommandHandler('atr',atr))
     # dp.add_handler(CommandHandler("simon_dice", simon_dice, pass_args=True))
     # dp.add_handler(CommandHandler("simon_pregunta", simon_pregunta, pass_args=True))
-
+    dp.add_handler(MessageHandler(filters=Filters.text, callback=handle_message))
     updater.start_polling()
     updater.idle()
 
