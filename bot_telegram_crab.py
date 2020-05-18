@@ -48,9 +48,9 @@ Lo unico que quedaria, son unas preguntas obligatorias para elaborar perfiles ps
 7.- juky o dadalt"""
     update.message.reply_text(stringBienvenida)  
 
-def handle_hola(bot, update):
+def handle_message(bot, update):
     text = update.message.text
-    if text == 'hello':
+    if text.upper() == 'hello'.upper():
         update.message.reply_text('Hello {}'.format(update.message.from_user.first_name))
 def hola(bot, update):
     update.message.reply_text('Hola {}'.format(update.message.from_user.first_name))
